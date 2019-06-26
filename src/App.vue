@@ -5,10 +5,10 @@
       <AddDialog></AddDialog>
 
       <v-layout row wrap>
-        <StatusCard xs3 :title="titles[0]" :kanbans="backlogs"></StatusCard>
-        <StatusCard xs3 :title="titles[1]" :kanbans="todos"></StatusCard>
-        <StatusCard xs3 :title="titles[2]" :kanbans="doings"></StatusCard>
-        <StatusCard xs3 :title="titles[3]" :kanbans="dones"></StatusCard>
+        <StatusCard xs3 :title="titles[0]" :status="status[0]"></StatusCard>
+        <StatusCard xs3 :title="titles[1]" :status="status[1]"></StatusCard>
+        <StatusCard xs3 :title="titles[2]" :status="status[2]"></StatusCard>
+        <StatusCard xs3 :title="titles[3]" :status="status[3]"></StatusCard>
       </v-layout>
     </v-container>
   </v-app>
@@ -30,41 +30,8 @@
     data() {
       return {
         titles: ['Back-Log', 'To-Do', 'Doing', 'Done'],
-        kanbans: [],
-        backlogs: [],
-        todos: [],
-        doings: [],
-        dones: []
+        status: ['backlog', 'todo', 'doing', 'done']
       }
-    },
-    created() {
-      db.collection("Task")
-        .onSnapshot((querySnapshot) => {
-          let arr = []
-          this.backlogs = []
-          this.todos = []
-          this.doings = []
-          this.dones = []
-          querySnapshot.forEach((doc) => {
-            arr.push({
-              id: doc.id,
-              ...doc.data()
-            });
-          });
-          this.kanbans = arr;
-          for (const kanban of arr) {
-          if (kanban.status == 'backlog') {
-            this.backlogs.push(kanban);
-          } else if(kanban.status == 'todo') {
-            this.todos.push(kanban)
-          } else if(kanban.status == 'doing') {
-            this.doings.push(kanban);
-          } else if(kanban.status == 'done') {
-            this.dones.push(kanban)
-          }
-        }
-        });
-        
     }
   }
 </script>

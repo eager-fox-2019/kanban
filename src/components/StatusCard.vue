@@ -2,23 +2,48 @@
   <v-flex>
     <v-card>
       <div class="header">
-      <h4 class="display-1">{{title}}</h4>
+        <h4 class="display-1">{{title}}</h4>
       </div>
-      <KanbanCard v-for="kanban in kanbans" :key="kanban.id" :kanban="kanban" :title="title"></KanbanCard>
+      <draggable v-model="kanbans" group="list" @start="drag=true" @end="drag=false">
+        <KanbanCard v-for="kanban in kanbans" :key="kanban.id" :kanban="kanban" :title="title"></KanbanCard>
+      </draggable>
     </v-card>
   </v-flex>
 </template>
 
 <script>
-  import KanbanCard from './KanbanCard'
+  import db from "../db"
+  import draggable from 'vuedraggable';
+  import KanbanCard from './KanbanCard';
   export default {
     components: {
-      KanbanCard
+      KanbanCard,
+      draggable
     },
-    props: ['title', 'kanbans'],
+    props: ['title', 'status'],
     data() {
       return {
-        
+        kanbans: []
+      }
+    },
+    created() {
+      db.collection("Task").where("status", "==", this.status)
+        .onSnapshot((querySnapshot) => {
+          let arr = []
+          this.kanbans = []
+          querySnapshot.forEach((doc) => {
+            arr.push({
+              id: doc.id,
+              ...doc.data()
+            });
+          });
+          for (const kanban of arr) {
+            this.kanbans.push(kanban);
+          }
+        });
+    },
+    watch: {
+      kanbans(newVal, oldVal) {
       }
     }
   }

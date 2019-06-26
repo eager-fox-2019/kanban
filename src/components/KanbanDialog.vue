@@ -5,7 +5,7 @@
         <v-btn color="primary" dark v-on="on">Show Details</v-btn>
       </template>
       <v-card>
-        <v-card-title class="headline">Use Google's location service?</v-card-title>
+        <v-card-title class="headline">{{kanban.title}}</v-card-title>
         <v-card-text>
             <p><strong>Description</strong>: {{kanban.description}}</p>
             <p><strong>Point</strong>: {{kanban.point}}</p>
@@ -16,7 +16,7 @@
           <v-btn @click="dialog = false">Cancel</v-btn>
           <v-btn @click="deleteKanban" color="error">Delete</v-btn>
           <v-btn @click="updateKanban('backlog')" v-if="title == 'To-Do'" color="warning">Back-Log</v-btn>
-          <v-btn @click="updateKanban('todo')" v-if="title == 'Back-Log'" color="warning">To Do</v-btn>
+          <v-btn @click="updateKanban('todo')" v-if="title == 'Back-Log' || title == 'Doing'" color="warning">To Do</v-btn>
           <v-btn @click="updateKanban('doing')" v-if="title == 'To-Do' || title == 'Done'" color="info">Doing</v-btn>
           <v-btn @click="updateKanban('done')" v-if="title == 'Doing'" color="success">Done</v-btn>
         </v-card-actions>
