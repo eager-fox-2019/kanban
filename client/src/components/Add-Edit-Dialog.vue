@@ -21,7 +21,6 @@
             </v-flex>
           </v-layout>
         </v-container>
-        <small>*indicates required field</small>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>

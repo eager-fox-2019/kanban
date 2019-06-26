@@ -1,11 +1,13 @@
 <template>
-  <v-card>
+  <v-card hover>
     <v-card-title primary-title>
       <h3 class="headline mb-0">{{ item.title }}</h3>
-      <v-layout xs2 md2 lg2>
-        {{ item.description }}
-      </v-layout>
     </v-card-title>
+    <v-card-text>
+      <div>
+        {{ item.description }}
+      </div>
+    </v-card-text>
     <v-card-actions>
       <v-btn flat color="orange" @click="editModal(item)"><v-icon>edit</v-icon></v-btn>
       <v-btn flat color="orange" @click="deleteTask(item.id)"><v-icon>delete</v-icon></v-btn>
