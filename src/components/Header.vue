@@ -1,9 +1,11 @@
 <template>
   <header class="clearfix">
-    <h2>Kamban Board</h2>
-    <button type="button" class="btn btn-info float-right mt-2" data-toggle="modal" data-target="#newTaskModal">New Task</button>
+    <div class="mb-3">
+      <h2>Kamban Board</h2>
+      <button type="button" class="btn btn-info float-right mt-2" data-toggle="modal" data-target="#newTaskModal">New Task</button>
+    </div>
     <!-- The Modal -->
-    <div class="modal fade" id="newTaskModal">
+    <div class="modal fade mt-3" id="newTaskModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <!-- Modal Header -->
@@ -59,10 +61,15 @@ export default {
         Description: this.description,
         Point: this.point,
         AssignTo: this.assignTo,
-        Status: 'Back-Log'
+        Status: 'Back Log'
       })
-        .then(function (docRef) {
+        .then((docRef) => {
           console.log('Document written with ID: ', docRef.id)
+
+          this.title = ''
+          this.description = ''
+          this.point = ''
+          this.assignTo = ''
         })
         .catch(function (error) {
           console.error('Error adding document: ', error)
