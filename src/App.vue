@@ -1,7 +1,7 @@
 <template>
-  <v-app>
+  <v-app v-bind:style="{ 'background-color':'#34495E' }">
     <v-container grid-list-md>
-      <h3 class="display-2">Made Kanban</h3>
+      <h3 class="display-2" v-bind:style="{ 'color':'#eee' }">Made Kanban</h3>
       <AddDialog></AddDialog>
 
       <v-layout row wrap>
@@ -37,9 +37,4 @@
 </script>
 
 <style>
-  #header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 </style>

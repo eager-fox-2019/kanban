@@ -2,11 +2,11 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" dark v-on="on">Add Kanban</v-btn>
+        <v-btn color="primary" dark v-on="on">Add Task</v-btn>
       </template>
       <v-card>
         <v-card-title>
-          <span class="headline">User Profile</span>
+          <span class="headline">Add Task</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>

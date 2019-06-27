@@ -1,6 +1,6 @@
 <template>
   <v-flex>
-    <v-card>
+    <v-card v-bind:style="{ 'background-color':'#ddd' }">
       <div class="header">
         <h4 class="display-1">{{title}}</h4>
       </div>
@@ -56,5 +56,7 @@
     align-items: center;
     border-bottom: 1px solid #777;
     height: 50px;
+    background-color: #41B883;
+    color: white;
   }
 </style>
