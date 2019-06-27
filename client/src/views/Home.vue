@@ -87,12 +87,21 @@ export default {
   },
   watch: {
     'kanban.new': function (data) {
+      data.forEach((e, i) => {
+        this.kanban.new[i].sort = i
+      })
       this.syncToFireStore()
     },
     'kanban.inProgress': function (data) {
+      data.forEach((e, i) => {
+        this.kanban.inProgress[i].sort = i
+      })
       this.syncToFireStore()
     },
     'kanban.completed': function (data) {
+      data.forEach((e, i) => {
+        this.kanban.completed[i].sort = i
+      })
       this.syncToFireStore()
     }
   }
