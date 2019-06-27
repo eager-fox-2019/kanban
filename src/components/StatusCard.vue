@@ -43,7 +43,24 @@
         });
     },
     watch: {
-      kanbans(newVal, oldVal) {
+      kanbans: function () {
+        // console.log(this.kanbans)
+        let newKanban = this.kanbans.filter((kanban) => {
+          if (kanban.status != this.status) {
+            return kanban;
+          }
+        });
+
+        newKanban.forEach((kanban) => {
+          db.collection("Task").doc(kanban.id).update({
+            status: this.status
+          }).then(() => {
+            console.log("Document successfully updated!");
+          }).catch(function (error) {
+            this.dialog = false
+            console.error("Error removing document: ", error);
+          });
+        })
       }
     }
   }
