@@ -2,7 +2,7 @@
   <div class="kanban-column" v-bind:class="type">
     <h1>{{title}}</h1>
     <draggable v-model="taskList" group="type" @start="drag=true" @end="drag=false" @change="updateList">
-      <KanbanCard v-for="card in taskList" :key="card.id" :card="card" :class="type"/>
+      <KanbanCard v-for="card in taskList" :key="card.id" :card="card" :class="type" />
     </draggable>
   </div>
 </template>
@@ -22,33 +22,35 @@ export default {
   },
   data: () => {
     return {
-      taskList: [],
-      curCard: ""
+      taskList: []
     }
   },
   methods: {
-  	updateList: function (item) {
-  		if (item.added){
-  			//update element to the correct status
-  			let currentCard = item.added.element
-  			currentCard.status = this.type
-  			db.collection('kanbanList').doc(currentCard.id).set(currentCard)
-  			.then( () => {
-  				console.log("moved a card")
-  			})
-  		}
-  	}
+    updateList: function (event) {
+      if (event.added) {
+        // update element to the correct status
+        let currentCard = event.added.element
+        currentCard.status = this.type
+        db.collection('kanbanList').doc(currentCard.id).set(currentCard)
+          .then(() => {
+            console.log('moved a card')
+          })
+          .catch(error => {
+            console.error('Error removing Card:', error)
+          })
+      }
+    }
   },
   computed: {
-  	title: function() {
-  		let header = {
-  			backlog: "Backlog",
-  			todo: "To-Do",
-  			inprogress: "In-Progress",
-  			completed: "Completed"
-  		}
-  		return header[this.type]
-  	}
+    title: function () {
+      let header = {
+        backlog: 'Backlog',
+        todo: 'To-Do',
+        inprogress: 'In-Progress',
+        completed: 'Completed'
+      }
+      return header[this.type]
+    }
   },
   created () {
     db.collection('kanbanList').onSnapshot(querySnapshot => {

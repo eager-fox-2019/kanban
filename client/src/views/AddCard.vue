@@ -13,15 +13,14 @@
         <span>
           <label for="stat">Status:</label>
           <label class="radio-inline backlog">
-           <input v-model="status" value="backlog" type="radio" name="optradio">
+            <input v-model="status" value="backlog" type="radio" name="optradio">
             Backlog</label>
           <label class="radio-inline todo">
-          <input v-model="status" value="todo" type="radio" name="optradio" checked> To-Do</label>
+            <input v-model="status" value="todo" type="radio" name="optradio" checked> To-Do</label>
           <label class="radio-inline inprogress">
-          <input v-model="status" value="inprogress" type="radio" name="optradio"> In-Progress</label>
+            <input v-model="status" value="inprogress" type="radio" name="optradio"> In-Progress</label>
           <label class="radio-inline completed">
-          <input v-model="status" value="completed" type="radio" name="optradio"> Completed</label>
-          </select>
+            <input v-model="status" value="completed" type="radio" name="optradio"> Completed</label>
         </span>
         <input type="submit" class="form-control btn btn-primary" id="submit" @click="addCard">
       </div>
@@ -36,28 +35,28 @@ export default {
   name: 'add',
   data () {
     return {
-      content: "",
-      date: "",
-      status: "todo"
+      content: '',
+      date: '',
+      status: 'todo'
     }
   },
   methods: {
-    addCard: function() {
-      // add card to firebase
+    addCard: function () {
+      //  add card to firebase
       let card = {
-      	content: this.content, 
-      	dueDate: this.date, 
-      	status: this.status
+        content: this.content,
+        dueDate: this.date,
+        status: this.status
       }
       db.collection('kanbanList').add(card)
       this.clearValues()
-      //return to home
-      router.push({ name: "home"})
+      // return to home
+      router.push({ name: 'home' })
     },
-    clearValues(){
-    	this.content = ""
-    	this.date = ""
-    	this.status = "todo"
+    clearValues () {
+      this.content = ''
+      this.date = ''
+      this.status = 'todo'
     }
   }
 }
