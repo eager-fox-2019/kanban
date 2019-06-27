@@ -49,10 +49,12 @@ a {
 }
 
 h1 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: black;
-  padding: 0.3em;
+  padding: 0.5em;
   margin: 0.1em;
+  border: solid white 0.1em;
+  border-radius: 1em;
 }
 
 .backlog h1 {

@@ -1,7 +1,7 @@
 <template>
   <b-card class="kanban-card"
 :title="card.content">
-   <b-card-text>Due: {{card.dueDate.toDate().toDateString()}}</b-card-text>
+   <b-card-text>Due: {{new Date(card.dueDate).toDateString()}}</b-card-text>
   </b-card>
 </template>
 
