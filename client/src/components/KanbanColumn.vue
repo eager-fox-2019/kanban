@@ -1,8 +1,8 @@
 <template>
   <div class="kanban-column" v-bind:class="type">
-    <h1>{{type}}</h1>
-    <draggable v-model="taskList" group="type" @start="drag=true" @end="drag=false">
-      <KanbanCard v-for="card in taskList" :key="card.id" :card="card" :class="type" />
+    <h1>{{title}}</h1>
+    <draggable v-model="taskList" group="type" @start="drag=true" @end="drag=false" @change="updateList">
+      <KanbanCard v-for="card in taskList" :key="card.id" :card="card" :class="type"/>
     </draggable>
   </div>
 </template>
@@ -13,14 +13,42 @@ import draggable from 'vuedraggable'
 
 export default {
   name: 'kanban-column',
+  props: {
+    type: String
+  },
   components: {
     KanbanCard,
     draggable
   },
   data: () => {
     return {
-      taskList: []
+      taskList: [],
+      curCard: ""
     }
+  },
+  methods: {
+  	updateList: function (item) {
+  		if (item.added){
+  			//update element to the correct status
+  			let currentCard = item.added.element
+  			currentCard.status = this.type
+  			db.collection('kanbanList').doc(currentCard.id).set(currentCard)
+  			.then( () => {
+  				console.log("moved a card")
+  			})
+  		}
+  	}
+  },
+  computed: {
+  	title: function() {
+  		let header = {
+  			backlog: "Backlog",
+  			todo: "To-Do",
+  			inprogress: "In-Progress",
+  			completed: "Completed"
+  		}
+  		return header[this.type]
+  	}
   },
   created () {
     db.collection('kanbanList').onSnapshot(querySnapshot => {
@@ -35,9 +63,6 @@ export default {
       })
       this.taskList = kanbanArray
     })
-  },
-  props: {
-    type: String
   }
 }
 

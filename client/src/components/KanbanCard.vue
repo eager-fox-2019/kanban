@@ -1,6 +1,5 @@
 <template>
-  <b-card class="kanban-card"
-:title="card.content">
+  <b-card class="kanban-card" :class="card.id===curCard.id ? 'kanban-card-selected' : 'kanban-card'" :title="card.content" @click="select(card)">
    <b-card-text>Due: {{new Date(card.dueDate).toDateString()}}</b-card-text>
   </b-card>
 </template>
@@ -10,6 +9,17 @@ export default {
   name: 'kanban-card',
   props: {
     card: Object
+  },
+  data: () => {
+    return {
+      curCard: {}
+    }
+  },
+  methods :{
+  	select: function(cardSelected) {
+  		console.log(cardSelected)
+  		this.curCard = cardSelected
+  	}
   }
 }
 </script>
@@ -25,6 +35,13 @@ a {
  margin: 0.2em;
  border: solid black;
  color: white;
+}
+
+.kanban-card:hover {
+  cursor: pointer;
+}
+.kanban-card-selected {
+  border-color: palegreen
 }
 
 .backlog {
