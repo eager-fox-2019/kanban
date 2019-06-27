@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/stefkwan/kanban/issues"
   },
-  "homepage": "https://github.com/stefkwan/kanban#readme"
+  "homepage": "https://github.com/stefkwan/kanban#readme",
+  "dependencies": {
+    "vue-draggable": "^2.0.2",
+    "vuedraggable": "^2.23.0"
+  }
 }

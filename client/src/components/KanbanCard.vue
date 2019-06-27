@@ -25,6 +25,21 @@ a {
  margin: 0.2em;
  border: solid black;
  color: white;
- background-color: darkgrey;
+}
+
+.backlog {
+  background-color: #FF0000;
+}
+
+.todo {
+  background-color: #FF6600;
+}
+
+.inprogress {
+  background-color: #FFCC00;
+}
+
+.completed {
+  background-color: #336699;
 }
 </style>

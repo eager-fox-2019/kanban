@@ -1,13 +1,6 @@
 <template>
   <div class="home d-flex">
-    <KanbanColumn class='col' 
-    :type="'backlog'"/>
-    <KanbanColumn class='col' 
-    :type="'todo'"/>
-    <KanbanColumn class='col' 
-    :type="'inprogress'"/>
-    <KanbanColumn class='col' 
-    :type="'complete'"/>
+    <KanbanColumn v-for="(type, i) in types" :key="i" :type="type" class='col' />
   </div>
 </template>
 
@@ -19,9 +12,12 @@ export default {
   name: 'home',
   components: {
     KanbanColumn
+  },
+  data () {
+    return {
+      types: ['backlog', 'todo', 'inprogress', 'completed']
+    }
   }
 }
-</script>
 
-<style scoped>
-</style>
+</script>

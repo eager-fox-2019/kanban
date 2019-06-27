@@ -1,17 +1,21 @@
 <template>
   <div class="kanban-column" v-bind:class="type">
     <h1>{{type}}</h1>
-    <KanbanCard v-for="card in taskList" :key="card.id" :card="card" />
+    <draggable v-model="taskList" group="type" @start="drag=true" @end="drag=false">
+      <KanbanCard v-for="card in taskList" :key="card.id" :card="card" :class="type" />
+    </draggable>
   </div>
 </template>
 <script>
 import KanbanCard from '@/components/KanbanCard.vue'
 import db from '@/config/firebase.js'
+import draggable from 'vuedraggable'
 
 export default {
   name: 'kanban-column',
   components: {
-    KanbanCard
+    KanbanCard,
+    draggable
   },
   data: () => {
     return {
@@ -63,7 +67,7 @@ h1 {
   background-color: #FFCC00;
 }
 
-.complete h1 {
+.completed h1 {
   background-color: #336699;
 }
 
