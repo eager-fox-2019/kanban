@@ -3,7 +3,7 @@
     <b-container>
       <b-row align-h="center">
         <TaskGroup :status='"New"' :color='"danger"'>
-          <draggable v-model="newTask" group="task" @start="drag=true" @end="drag=false">
+          <draggable v-model="newTask" group="task" @start="drag=true" @end="drag=false" @change="updateTask">
             <TaskCard v-for="taskDetail in newTask"
             :key="taskDetail.id"
             :id="taskDetail.id"
@@ -13,7 +13,7 @@
           </draggable>   
         </TaskGroup>
         <TaskGroup :status='"To-Do"' :color='"warning"'>
-          <draggable v-model="todo" group="task" @start="drag=true" @end="drag=false">
+          <draggable v-model="todo" group="task" @start="drag=true" @end="drag=false" @change="updateTask">
             <TaskCard v-for="taskDetail in todo"
             :key='taskDetail.id'
             :id='taskDetail.id'
@@ -23,7 +23,7 @@
           </draggable>
         </TaskGroup>
         <TaskGroup :status='"Done"' :color='"success"'>
-          <draggable v-model="done" group="task" @start="drag=true" @end="drag=false">
+          <draggable v-model="done" group="task" @start="drag=true" @end="drag=false" @change="updateTask">
             <TaskCard v-for="(taskDetail) in done"
             :key='taskDetail.id'
             :id='taskDetail.id'
@@ -94,11 +94,12 @@ export default {
       }).catch(function(error) {
           console.error("Error removing document: ", error);
       });
-    }
-  },
-  watch: {
-    TaskCard: function() {
-      return db.collection("tasks").doc(TaskCard.id).update(TaskCard)
+    },
+    updateTask: function(event){
+      if (event.moved){
+        let currentTask = event.moved.element
+        // currentTask.status = this.type
+        db.collection("tasks").doc(currentTask.id).update(currentTask)
         .then(function() {
             console.log("Document successfully updated!");
         })
@@ -106,8 +107,20 @@ export default {
             // The document probably doesn't exist.
             console.error("Error updating document: ", error);
         });
+      }
     }
+  // },
+  // watch: {
+  //   TaskCard: function() {
+  //     return db.collection("tasks").doc(TaskCard.id).update(TaskCard)
+  //       .then(function() {
+  //           console.log("Document successfully updated!");
+  //       })
+  //       .catch(function(error) {
+  //           // The document probably doesn't exist.
+  //           console.error("Error updating document: ", error);
+  //       });
+  //   }
   }
-//   mounted () { }
 }
 </script>
