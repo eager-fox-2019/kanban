@@ -7,16 +7,16 @@
     </div>
     <div class="row">
       <div class="col-sm-3">
-        <cardStatus :isGanjil="backlog.isGanjil" :title="backlog.title" :status="backlog.status" :tasks="backlog.tasks"></cardStatus>
+        <cardStatus :title="backlog.title" :status="backlog.status" :tasks="backlog.tasks"></cardStatus>
       </div>
       <div class="col-sm-3">
-        <cardStatus :isGanjil="todo.isGanjil" :title="todo.title" :status="todo.status" :tasks="todo.tasks"></cardStatus>
+        <cardStatus :title="todo.title" :status="todo.status" :tasks="todo.tasks"></cardStatus>
       </div>
       <div class="col-sm-3">
-        <cardStatus :isGanjil="inprogress.isGanjil" :title="inprogress.title" :status="inprogress.status" :tasks="inprogress.tasks"></cardStatus>
+        <cardStatus :title="inprogress.title" :status="inprogress.status" :tasks="inprogress.tasks"></cardStatus>
       </div>
       <div class="col-sm-3">
-        <cardStatus :isGanjil="done.isGanjil" :title="done.title" :status="done.status" :tasks="done.tasks"></cardStatus>
+        <cardStatus :title="done.title" :status="done.status" :tasks="done.tasks"></cardStatus>
       </div>
     </div>
   </div>
@@ -26,14 +26,12 @@
 // @ is an alias to /src
 import db from '@/config/firebase.js'
 import headerPage from '@/components/header.vue'
-import formAddTask from '@/components/formAddTask.vue'
 import cardStatus from '@/components/cardStatus.vue'
 
 export default {
   name: 'home',
   components: {
     headerPage,
-    formAddTask,
     cardStatus
   },
   methods: {
@@ -66,25 +64,21 @@ export default {
   data () {
     return {
       backlog: {
-        isGanjil: 'a',
         title: 'Back-Log',
         status: 'backlog',
         tasks: []
       },
       todo: {
-        isGanjil: 'b',
         title: 'To-Do',
         status: 'todo',
         tasks: []
       },
       inprogress: {
-        isGanjil: 'a',
         title: 'In-Progress',
         status: 'inprogress',
         tasks: []
       },
       done: {
-        isGanjil: 'b',
         title: 'Done',
         status: 'done',
         tasks: []

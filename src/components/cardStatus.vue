@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 :id="status">{{title}}</h3>
-        <div class="overflow-auto" id="board">
+        <div id="board">
         <cardTask v-for="task in tasks" :key="task.id" :task="task"></cardTask>
         </div>
     </div>
@@ -25,7 +25,7 @@ export default {
         margin-top: 30px;
         color: black;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 23px;
         font-family: 'Lobster', cursive;
         text-align: center;
 
@@ -34,42 +34,42 @@ export default {
     #backlog{
         border-radius: 15px 50px;
         background: #f06c72;
-        padding: 10px;
+        padding: 8px;
         width: 270px;
-        height: 55px;
-        margin-left: 10%
+        height: 50px;
+        margin-left: 8%
     }
 
      #todo{
         border-radius: 50px 15px;
         background: orange;
-        padding: 10px;
+         padding: 8px;
         width: 270px;
-        height: 55px;
-        margin-left: 10%
+        height: 50px;
+        margin-left: 8%
     }
 
      #inprogress{
         border-radius: 15px 50px;
         background:  lightseagreen;
-        padding: 10px;
+         padding: 8px;
         width: 270px;
-        height: 55px;
-        margin-left: 10%
+        height: 50px;
+        margin-left: 8%
     }
 
      #done{
         border-radius: 50px 15px;
         background: lightgreen;
-        padding: 10px;
+        padding: 8px;
         width: 270px;
-        height: 55px;
-        margin-left: 10%
+        height: 50px;
+        margin-left: 8%
     }
 
     #board{
         max-height: 480px;
-        overflow: scroll;
+        overflow-y: scroll;
     }
 
 </style>

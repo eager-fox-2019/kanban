@@ -126,7 +126,7 @@ export default {
     margin-top: 10px;
     border-radius: 25px;
     border: 3px solid darkblue;
-    padding: 5px;
+    padding: 4px;
     width: 270px;
     height: 190px;
     text-align: left;
