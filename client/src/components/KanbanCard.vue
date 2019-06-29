@@ -15,11 +15,11 @@
 export default {
   props: ['kanbanDetail'],
   methods: {
-    toDateString(date) {
+    toDateString (date) {
       if (date.toDate) {
         return date.toDate().toDateString()
       } else {
-        return date.toDateString() 
+        return date.toDateString()
       }
     }
   }
