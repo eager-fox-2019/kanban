@@ -12,7 +12,9 @@
     <div class="flex flex-row padding-m">
       <kanban-group :color='"#5386E4"' :kanbanName='"New"'>
         <draggable
-          v-model="kanban.new" group="kanban">
+          v-model="kanban.new"
+          @change="syncToFireStore"
+          group="kanban">
           <kanban-card
             v-for="(cardDetail , i) in kanban.new"
             :key="`kanban-new-${i}`"
@@ -22,7 +24,9 @@
       </kanban-group>
       <kanban-group :color='"#FFFBBD"' :kanbanName='"In Progress"'>
         <draggable
-          v-model="kanban.inProgress" group="kanban">
+          v-model="kanban.inProgress"
+          @change="syncToFireStore"
+          group="kanban">
           <kanban-card
             v-for="(cardDetail , i) in kanban.inProgress"
             :key="`kanban-inprogress-${i}`"
@@ -32,7 +36,9 @@
       </kanban-group>
       <kanban-group :color='"#83B692"' :kanbanName='"Completed"'>
         <draggable
-          v-model="kanban.completed" group="kanban">
+          v-model="kanban.completed"
+          @change="syncToFireStore"
+          group="kanban">
           <kanban-card
             v-for="(cardDetail , i) in kanban.completed"
             :key="`kanban-completed-${i}`"
@@ -48,6 +54,8 @@
 import KanbanGroup from '@/components/KanbanGroup.vue'
 import KanbanCard from '@/components/KanbanCard.vue'
 import ModalAdd from '@/components/ModalAdd.vue'
+import kanbanFireStore from '@/firebase.db.js'
+import { checkEmptyObject } from '@/helpers/utils.js'
 import draggable from 'vuedraggable'
 
 export default {
@@ -63,8 +71,25 @@ export default {
         new: [],
         inProgress: [],
         completed: []
-      }
+      },
+      firebaseListener: null
     }
+  },
+  mounted () {
+    let kanbanDoc = kanbanFireStore.doc
+    this.firebaseListener = kanbanDoc.onSnapshot(snapshot => {
+      let data = snapshot.data()
+      if (checkEmptyObject(data) || data === undefined) {
+        kanbanFireStore.initStorage()
+          .catch(err => console.log('error waktu init data', { err }))
+      } else {
+        this.kanban = data
+      }
+    })
+  },
+  beforeDestroy () {
+    // destroy firebase listener
+    this.firebaseListener()
   },
   methods: {
     openNew () {
@@ -75,33 +100,21 @@ export default {
       let kanban = {
         title,
         description,
-        createdAt: new Date(),
-        sort: kanbanGroup.length
+        createdAt: new Date()
       }
       kanbanGroup.push(kanban)
-    },
-    syncToFireStore () {
-      return 'yow'
-    }
-  },
-  watch: {
-    'kanban.new': function (data) {
-      data.forEach((e, i) => {
-        this.kanban.new[i].sort = i
-      })
       this.syncToFireStore()
+      this.$modal.hide('modal-add')
     },
-    'kanban.inProgress': function (data) {
-      data.forEach((e, i) => {
-        this.kanban.inProgress[i].sort = i
-      })
-      this.syncToFireStore()
-    },
-    'kanban.completed': function (data) {
-      data.forEach((e, i) => {
-        this.kanban.completed[i].sort = i
-      })
-      this.syncToFireStore()
+    syncToFireStore (e) {
+      kanbanFireStore
+        .doc
+        .set(this.kanban)
+        .catch((err) => {
+          if (err) {
+            console.log('error sync ke firestore kanban', { kanban: this.kanban })
+          }
+        })
     }
   }
 }

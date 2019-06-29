@@ -3,7 +3,7 @@
       <div>
         <strong><p class="lead">{{kanbanDetail.title}}</p></strong>
         <p style="margin-top: 5px;">{{kanbanDetail.description}}</p>
-        <p>{{kanbanDetail.createdAt.toLocaleDateString() }}</p>
+        <p>{{ toDateString(kanbanDetail.createdAt) }}</p>
       </div>
       <button class="button button-error button-border">
         <i class="fa fa-trash" aria-hidden="true"></i>
@@ -13,6 +13,15 @@
 
 <script>
 export default {
-  props: ['kanbanDetail']
+  props: ['kanbanDetail'],
+  methods: {
+    toDateString(date) {
+      if (date.toDate) {
+        return date.toDate().toDateString()
+      } else {
+        return date.toDateString() 
+      }
+    }
+  }
 }
 </script>
