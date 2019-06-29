@@ -1,19 +1,16 @@
 <template>
-  <div id="app">
-    <div id="navbar">
-      <p id="judul">Kanban Board</p>
-    </div>
-    <p id="add" @click="isComponentModalActive = true" class="button">Add new task</p>
-    <b-modal :active.sync="isComponentModalActive" has-modal-card>
-      <AddForm></AddForm>
-    </b-modal>
+  <v-app id="app">
+    <p id="judul">Kanban Board</p>
+    <p id="add" @click="formActive = true" class="button" v-if="!formActive">Add new task</p>
+    <p id="add" @click="formActive = false" class="button" v-if="formActive">close</p>
+    <AddForm v-if="formActive == true" class="animated fadeIn" :class="{'animated fadeOut' : !formActive}"></AddForm>
     <div id="kanban-bar">
       <kanban kanban-name="Plan"/>
       <kanban kanban-name="In-Progress"/>
       <kanban kanban-name="Done"/>
       <kanban kanban-name="Routine"/>
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -23,8 +20,7 @@ export default {
   name: 'app',
   data() {
     return {
-      isComponentModalActive: false,
-
+      formActive: false
     }
   },
   components: {
@@ -37,12 +33,20 @@ export default {
   methods : {
     newTask() {
 
+    },
+    closeForm() {
+      console.log('masuk tes woiii')
+      this.formActive = false
     }
   }
 }
 </script>
 
 <style>
+p {
+  margin: 0;
+  
+}
 #add {
   font-size: 20px;
   color: white;
@@ -54,11 +58,13 @@ export default {
 }
 #add:hover{
   cursor: pointer;		
-  margin-top: 12px;
+  /* margin-top: 12px; */
 }
 #judul {
-  color: white;
+  color: #2C3E50;
   font-size: 24px;
+  margin-left: 20px;
+  margin-bottom: 0px;;
 }
 body, html {
   width: 100%;
@@ -78,11 +84,15 @@ body, html {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 150px;
 }
 #navbar {
   width: 100%;
-  height: 50px;
+  height: 70px;
   padding: 10px;
   background-color: #2c3e50;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 </style>

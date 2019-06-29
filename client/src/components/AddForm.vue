@@ -1,39 +1,67 @@
 <template>
-  <form action="">
-    <div class="modal-card" style="width: auto">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Add Task</p>
-      </header>
-      <section class="modal-card-body">
-        <b-field label="Ttile">
-          <b-input>
-          </b-input>
-        </b-field>
-        <b-field label="Content">
-          <b-input>
-            </b-input>
-          </b-field>
-          <b-checkbox>Remember me</b-checkbox>
-      </section>
-      <footer class="modal-card-foot">
-          <button class="button" type="button" @click="$parent.close()">Close</button>
-          <button class="button is-primary">Login</button>
-      </footer>
+  <form id="addForm">
+    <div id="input">
+      <v-text-field
+        label="Title"
+        outline class="field"
+        v-model="newTask.title"
+      ></v-text-field>
+      <v-text-field
+        label="Content"
+        outline
+        v-model="newTask.content"
+      ></v-text-field>
+    </div>
+      <p>Add to: </p>
+    <div id="buttons">
+      <v-btn color="info" @click="add('plan')">Plan</v-btn>
+      <v-btn color="error" @click="add('in-progress')">In-Progress</v-btn>
+      <v-btn color="success" @click="add('done')">Done</v-btn>
+      <v-btn color="warning" @click="add('routine')">Routine</v-btn>
     </div>
   </form>
 </template>
 
 <script>
+import db from '../../config/firestore'
 export default {
   name : 'add-form',
   props: [],
   data() {
     return {
-
+      newTask: {
+        title: '',
+        content: ''
+      }
     }
   },
   methods : {
-    
+    add(type) {
+      db.collection(type).add(this.newTask)
+      this.$emit('closeForm')
+    }
   }
 }
 </script>
+<style scoped>
+  #addForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: 2px solid black; */
+    padding: 10px;
+    width: 40%;
+    margin: 0 auto;
+    transition-delay: 0.5s;
+  }
+
+  #buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  .field {
+    margin-left: 30px;
+  }
+</style>
+

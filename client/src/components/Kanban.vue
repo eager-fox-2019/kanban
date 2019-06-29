@@ -7,19 +7,20 @@
       'in-progress' : kanbanName === 'In-Progress'
       }"
     >{{ kanbanName }}</h1>
-    <div class="kanban-container">
+    <draggable class="kanban-container" v-model="tasks" group="people" @start="drag=true" @end="drag=false" @change="updateList">
       <div class="item" v-for="task in tasks" :key="task.id">
         <div class="id-div">
           <p>{{task.title}} </p>
         </div>
         <p>{{task.content}}</p>
       </div>
-    </div>
+    </draggable>
   </div>
 </template>
 
 <script>
-import db from '@/firestore'
+import db from '../../config/firestore'
+import draggable from 'vuedraggable'
 export default {
   name: 'kanban-template',
   props: ['kanbanName'],
@@ -38,18 +39,41 @@ export default {
         querySnapshot.forEach(doc => {
           arrTemp.push({
             id: doc.id,
+            type: this.type,
             ...doc.data()
           })
         });
         this.tasks = arrTemp
     });
+  },
+  methods: {
+    updateList: function (event) {
+      if (event.added) {
+        let currentCard = event.added.element
+        db.collection(this.type).doc(currentCard.id).set(currentCard)
+          .then(() => {
+            console.log(currentCard)
+            return db.collection(currentCard.type).doc(currentCard.id).delete()
+          })
+          .then(() => {
+            console.log('sukses delete dan update')
+          })
+          .catch(error => {
+            console.error('Error removing Card:', error)
+          })
+      }
+    }
+  },
+  components: {
+    draggable
   }
 }
 </script>
 
 <style scoped>
+
   .in-progress {
-    background-color: #6D4C41;
+    background-color: #FF1744;
   }
   .routine {
     background-color: #F9A825;
@@ -72,6 +96,7 @@ export default {
     font-size: 20px;
     background-color: #2C3E50;
     color: white;
+    margin-top: 0;
   }
   .main-container {
     margin-top: 30px;
@@ -109,5 +134,9 @@ export default {
     padding: 10px 0;
     /* height: 25px; */
     border-radius: 10px;
+  }
+
+  .item:hover{
+    cursor: pointer;		
   }
 </style>
