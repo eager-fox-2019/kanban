@@ -12,36 +12,33 @@
     <div class="flex flex-row padding-m">
       <kanban-group :color='"#5386E4"' :kanbanName='"New"'>
         <draggable
-          v-if="kanban.new.length > 0"
           v-model="kanban.new" group="kanban">
           <kanban-card
             v-for="(cardDetail , i) in kanban.new"
             :key="`kanban-new-${i}`"
-            :kanbanText='cardDetail'></kanban-card>
+            :kanbanDetail='cardDetail'></kanban-card>
         </draggable>
-        <div v-else class="padding-m background-white margin-m">There's no task -- No Element</div>
+        <div v-if="kanban.new.length === 0" class="padding-m background-white margin-m">There's no task -- No Element</div>
       </kanban-group>
       <kanban-group :color='"#FFFBBD"' :kanbanName='"In Progress"'>
         <draggable
-          v-if="kanban.inProgress.length > 0"
           v-model="kanban.inProgress" group="kanban">
           <kanban-card
             v-for="(cardDetail , i) in kanban.inProgress"
             :key="`kanban-inprogress-${i}`"
-            :kanbanText='cardDetail'></kanban-card>
+            :kanbanDetail='cardDetail'></kanban-card>
         </draggable>
-        <div v-else class="padding-m background-white margin-m">There's no task -- No Element</div>
+        <div v-if="kanban.inProgress.length === 0" class="padding-m background-white margin-m">There's no task -- No Element</div>
       </kanban-group>
       <kanban-group :color='"#83B692"' :kanbanName='"Completed"'>
         <draggable
-          v-if="kanban.completed.length > 0"
           v-model="kanban.completed" group="kanban">
           <kanban-card
             v-for="(cardDetail , i) in kanban.completed"
             :key="`kanban-completed-${i}`"
-            :kanbanText='cardDetail'></kanban-card>
+            :kanbanDetail='cardDetail'></kanban-card>
         </draggable>
-        <div v-else class="padding-m background-white margin-m">There's no task -- No Element</div>
+        <div v-if="kanban.completed.length === 0" class="padding-m background-white margin-m">There's no task -- No Element</div>
       </kanban-group>
     </div>
   </div>
@@ -73,12 +70,14 @@ export default {
     openNew () {
       this.$modal.show('modal-add')
     },
-    createNewTask (val) {
+    createNewTask (title, description) {
       let kanbanGroup = this.kanban.new
-      let kanban = {}
-      kanban.description = val
-      kanban.createdAt = new Date()
-      kanban.sort = kanbanGroup.length
+      let kanban = {
+        title,
+        description,
+        createdAt: new Date(),
+        sort: kanbanGroup.length
+      }
       kanbanGroup.push(kanban)
     },
     syncToFireStore () {
