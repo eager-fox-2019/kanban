@@ -5,7 +5,7 @@
         <p style="margin-top: 5px;">{{kanbanDetail.description}}</p>
         <p>{{ toDateString(kanbanDetail.createdAt) }}</p>
       </div>
-      <button class="button button-error button-border">
+      <button @click="deleteCard" class="button button-error button-border">
         <i class="fa fa-trash" aria-hidden="true"></i>
       </button>
     </div>
@@ -13,8 +13,26 @@
 
 <script>
 export default {
-  props: ['kanbanDetail'],
+  props: ['kanbanDetail', 'index', 'group'],
   methods: {
+    deleteCard () {
+      this.$modal.show('dialog', {
+        title: 'Are you sure?',
+        text: 'Delete this: ' + this.kanbanDetail.title,
+        buttons: [
+          {
+            title: 'Yes',
+            handler: () => { 
+              this.$emit('deleted', this.index, this.group)
+              this.$modal.hide('dialog')
+            }
+          },
+          {
+            title: 'Close'
+          }
+        ]
+      })
+    },
     toDateString (date) {
       if (date.toDate) {
         return date.toDate().toDateString()

@@ -18,6 +18,9 @@
           <kanban-card
             v-for="(cardDetail , i) in kanban.new"
             :key="`kanban-new-${i}`"
+            :index="i"
+            :group="'new'"
+            @deleted="deleteHandler"
             :kanbanDetail='cardDetail'></kanban-card>
         </draggable>
         <div v-if="kanban.new.length === 0" class="padding-m background-white margin-m">There's no task -- No Element</div>
@@ -30,6 +33,9 @@
           <kanban-card
             v-for="(cardDetail , i) in kanban.inProgress"
             :key="`kanban-inprogress-${i}`"
+            :index="i"
+            :group="'inProgress'"
+            @deleted="deleteHandler"
             :kanbanDetail='cardDetail'></kanban-card>
         </draggable>
         <div v-if="kanban.inProgress.length === 0" class="padding-m background-white margin-m">There's no task -- No Element</div>
@@ -42,10 +48,14 @@
           <kanban-card
             v-for="(cardDetail , i) in kanban.completed"
             :key="`kanban-completed-${i}`"
+            :index="i"
+            :group="'completed'"
+            @deleted="deleteHandler"
             :kanbanDetail='cardDetail'></kanban-card>
         </draggable>
         <div v-if="kanban.completed.length === 0" class="padding-m background-white margin-m">There's no task -- No Element</div>
       </kanban-group>
+      <v-dialog />
     </div>
   </div>
 </template>
@@ -92,6 +102,10 @@ export default {
     this.firebaseListener()
   },
   methods: {
+    deleteHandler (i, groupName) {
+      this.kanban[groupName].splice(i, 1)
+      this.syncToFireStore()
+    },
     openNew () {
       this.$modal.show('modal-add')
     },
