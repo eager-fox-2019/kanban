@@ -3,7 +3,7 @@
     <div id="input">
       <v-text-field
         label="Title"
-        outline class="field"
+        outline
         v-model="newTask.title"
       ></v-text-field>
       <v-text-field

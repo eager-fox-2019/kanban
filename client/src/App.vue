@@ -1,6 +1,7 @@
 <template>
   <v-app id="app">
-    <p id="judul">Kanban Board with dragging</p>
+    <p id="judul">Kanban Board</p>
+    <p id="notice">Don't forget to drag and drop your task as you progress!</p>
     <p id="add" @click="formActive = true" class="button" v-if="!formActive">Add new task</p>
     <p id="add" @click="formActive = false" class="button" v-if="formActive">close</p>
     <AddForm v-if="formActive == true" class="animated fadeIn" :class="{'animated fadeOut' : !formActive}"></AddForm>
@@ -47,6 +48,10 @@ p {
   margin: 0;
   
 }
+#notice {
+  text-align: center;
+  color: red;
+}
 #add {
   font-size: 20px;
   color: white;
@@ -61,10 +66,14 @@ p {
   /* margin-top: 12px; */
 }
 #judul {
+  width: 100%;
   color: #2C3E50;
+  background-color: rgb(233, 233, 176);
+  padding: 10px;
   font-size: 24px;
-  margin-left: 20px;
-  margin-bottom: 0px;;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 body, html {
   width: 100%;
