@@ -13,6 +13,7 @@
           <p>{{task.title}} </p>
         </div>
         <p>{{task.content}}</p>
+        <p class="delete-item" @click="deleteTask(task.id)">Delete</p>
       </div>
     </draggable>
   </div>
@@ -45,6 +46,7 @@ export default {
         });
         this.tasks = arrTemp
     });
+
   },
   methods: {
     updateList: function (event) {
@@ -52,16 +54,27 @@ export default {
         let currentCard = event.added.element
         db.collection(this.type).doc(currentCard.id).set(currentCard)
           .then(() => {
-            console.log(currentCard)
-            return db.collection(currentCard.type).doc(currentCard.id).delete()
-          })
-          .then(() => {
-            console.log('sukses delete dan update')
+            currentCard.type = this.type
+            console.log('sukses update')
           })
           .catch(error => {
             console.error('Error removing Card:', error)
           })
+
+        db.collection(currentCard.type).doc(currentCard.id).delete()
+        .then(() => {
+          console.log('sukses delete')
+        })
+        .catch(err => {
+          console.error('error removing card', err)
+        })
       }
+    },
+    deleteTask (id) {
+      db.collection(this.type).doc(id).delete()
+      .then(() => {
+        console.log('sukses delete');
+      })
     }
   },
   components: {
@@ -87,7 +100,7 @@ export default {
   p {
     margin: 0;
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 16px;
   }
   h1 {
     border-radius: 15px;
@@ -139,4 +152,17 @@ export default {
   .item:hover{
     cursor: pointer;		
   }
+
+  .delete-item {
+    color: white;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: rgba(255, 0, 0, 0.603);
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+
 </style>
