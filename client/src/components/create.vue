@@ -1,6 +1,14 @@
 <template>
-  <div id="window1">
-    <form id="window" v-on:submit.prevent="save">
+  <div style="  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #535a5ea6;">
+    <form style="  background-color: white;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 0.4rem;" v-on:submit.prevent="save">
       <div style="margin-bottom:10px">
         <h2 style="font-size:20px">New Task</h2>
       </div>
@@ -93,22 +101,3 @@ export default {
   }
 };
 </script>
-
-<style scopped>
-#window1 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-color: #26292ba6;
-}
-
-#window {
-  background-color: white;
-  width: 90%;
-  max-width: 38rem;
-  margin: 5rem auto;
-  padding: 0.9rem 1.2rem;
-  border-radius: 0.4rem;
-}
-</style>

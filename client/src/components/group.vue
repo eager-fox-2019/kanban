@@ -1,6 +1,6 @@
 <template>
   <div class="col-md group1">
-    <div style="text-align: center;" class="heading" :style="` color: #ffffff;background-color:${color}`">{{title}}</div>
+    <div style="text-align: center;" class="header" :style="` color: #ffffff;background-color:${color}`">{{title}}</div>
     <div class="context1" style="display:flex;justify-content:center;flex-direction:column;margin:auto">
       <div class="card" v-for="task in tasks" v-bind:key="task.id">
         <div class="card-body">
@@ -33,14 +33,14 @@
               <br>
               <div style="display: flex; justify-content: space-between">
                 <a
-                  class="control"
+                  style="cursor:pointer"
                   v-on:click="left(task.id, task.data.group)"
                   v-if="title !== 'Back-Log'"
                 > < </a>
                 <a style="border: none; cursor: default;" class="control" v-else>&nbsp;&nbsp;&nbsp;</a>
-                <button type="button" class="btn btn-danger" v-on:click="deleteTask(task.id)">Delete</button>
+                <button type="button" class="btn btn-danger" v-on:click="delete1(task.id)">Delete</button>
                 <a
-                  class="control"
+                         style="cursor:pointer"
                   v-on:click="right(task.id, task.data.group)"
                   v-if="title !== 'Done'"
                 >></a>
@@ -58,16 +58,10 @@
 import db from "../../firestore/db.js";
 export default {
   props: ["title", "tasks"],
-  computed: {
-    color() {
-      if (this.title === "Back-Log") return "red";
-      else if (this.title === "To-Do") return "orange";
-      else if (this.title === "Doing") return "#2b98f1";
-      else if (this.title === "Done") return "green";
-    },
-    formatted() {
-      JSON.stringify(tasks);
-    }
+    data: function() {
+    return {
+      color: ""
+    };
   },
   created(){
     console.log(this.tasks)
@@ -91,56 +85,31 @@ export default {
           });
       }
     },
-    deleteTask(id) {
+    delete1(id) {
       db.collection("tasks")
         .doc(id)
         .delete();
     }
+  },
+  created(){
+      if (this.title === "Back-Log") this.color = "red";
+      else if (this.title === "To-Do") this.color =  "orange";
+      else if (this.title === "Doing") this.color =  "#2b98f1";
+      else if (this.title === "Done") this.color =  "green";
   }
 };
 </script>
 
-<style scoped>
-.group1 {
-  border-radius: 0.4rem;
-  padding: 0;
-  margin: 0.6rem;
-  height: auto;
-  overflow: hidden;
-  background-color: #00000000;
-}
+<style scopped>
 
-.heading {
-  width: 100%;
-  margin: 0;
-  padding: 0.6rem 1rem;
-  border-radius:20px
+
+.header {
+  padding: 10px 10px;
+  border-radius:10px
 }
 
 .context1 {
   width: 250px;
 }
 
-.card {
-  margin: 0.6rem 0;
-  padding: 0;
-  font-size: 0.9rem;
-  border-color: #ddd;
-}
-
-.card-body {
-  margin: 0;
-  padding: 0.5rem;
-  text-align: left;
-}
-
-.control {
-  text-align: center;
-  margin-top: 0.6rem;
-  padding: 0.1rem 0.4rem;
-  border: 1px solid #ccc;
-  border-radius: 0.2rem;
-  background: #ffffff;
-  cursor: pointer;
-}
 </style>
