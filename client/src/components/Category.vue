@@ -11,7 +11,6 @@
 <hr>
       <div class="card-body category scrollbar scrollbar-young-passion">
         <draggable
-        tag="ul"
         v-model="taskss"
         v-bind="dragOptions"
         @start="drag = true"
