@@ -10,3 +10,8 @@ $ yarn build // for production
 ```
 
 deployed link : [kanban-jays.web.app](https://kanban-jays.web.app)
+
+---
+### Reference : 
++ [vue-draggable](https://github.com/SortableJS/Vue.Draggable)
++ [firestore](https://firebase.google.com/docs/firestore)
