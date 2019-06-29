@@ -2,7 +2,6 @@
 node_modules
 /dist
 src/firestore.js
-config
 # local env files
 .env.local
 .env.*.local

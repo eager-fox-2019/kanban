@@ -37,7 +37,8 @@ export default {
   },
   methods : {
     add(type) {
-      db.collection(type).add(this.newTask)
+      this.newTask.type = type
+      db.collection('kanban').add(this.newTask)
       this.$emit('closeForm')
     }
   }

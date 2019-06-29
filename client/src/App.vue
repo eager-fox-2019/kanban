@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <p id="judul">Kanban Board</p>
+    <p id="judul">Kanban Board with dragging</p>
     <p id="add" @click="formActive = true" class="button" v-if="!formActive">Add new task</p>
     <p id="add" @click="formActive = false" class="button" v-if="formActive">close</p>
     <AddForm v-if="formActive == true" class="animated fadeIn" :class="{'animated fadeOut' : !formActive}"></AddForm>

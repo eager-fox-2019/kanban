@@ -33,16 +33,16 @@ export default {
   },
   mounted() {
     this.type = this.kanbanName.toLowerCase()
-
-    db.collection(this.type)
+    db.collection('kanban')
       .onSnapshot((querySnapshot) => {
         let arrTemp = []
         querySnapshot.forEach(doc => {
-          arrTemp.push({
-            id: doc.id,
-            type: this.type,
-            ...doc.data()
-          })
+          if(doc.data().type === this.type) {
+            arrTemp.push({
+              id: doc.id,
+              ...doc.data()
+            })
+          }
         });
         this.tasks = arrTemp
     });
@@ -50,28 +50,20 @@ export default {
   },
   methods: {
     updateList: function (event) {
-      if (event.added) {
+      if(event.added) {
         let currentCard = event.added.element
-        db.collection(this.type).doc(currentCard.id).set(currentCard)
+        currentCard.type = this.type
+        db.collection('kanban').doc(currentCard.id).set(currentCard)
           .then(() => {
-            currentCard.type = this.type
-            console.log('sukses update')
+            console.log('success update')
           })
           .catch(error => {
             console.error('Error removing Card:', error)
           })
-
-        db.collection(currentCard.type).doc(currentCard.id).delete()
-        .then(() => {
-          console.log('sukses delete')
-        })
-        .catch(err => {
-          console.error('error removing card', err)
-        })
       }
     },
     deleteTask (id) {
-      db.collection(this.type).doc(id).delete()
+      db.collection('kanban').doc(id).delete()
       .then(() => {
         console.log('sukses delete');
       })
