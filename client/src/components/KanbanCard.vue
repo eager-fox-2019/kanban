@@ -1,5 +1,5 @@
 <template>
-    <div class="margin-m padding-s background-white flex flex-row justify-content-space-between">
+    <div class="kanbanCard margin-m padding-s background-white flex flex-row justify-content-space-between">
       <div>
         <strong><p class="lead">{{kanbanDetail.title}}</p></strong>
         <p style="margin-top: 5px;">{{kanbanDetail.description}}</p>
@@ -22,7 +22,7 @@ export default {
         buttons: [
           {
             title: 'Yes',
-            handler: () => { 
+            handler: () => {
               this.$emit('deleted', this.index, this.group)
               this.$modal.hide('dialog')
             }
@@ -43,3 +43,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.kanbanCard {
+  cursor: move
+}
+</style>
