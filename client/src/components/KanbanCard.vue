@@ -1,8 +1,9 @@
 <template>
     <div class="margin-m padding-s background-white flex flex-row justify-content-space-between">
       <div>
-        <strong><p class="lead">{{kanbanDetail.description}}</p></strong>
-        <p>{{kanbanDetail.createdAt}}</p>
+        <strong><p class="lead">{{kanbanDetail.title}}</p></strong>
+        <p style="margin-top: 5px;">{{kanbanDetail.description}}</p>
+        <p>{{kanbanDetail.createdAt.toLocaleDateString() }}</p>
       </div>
       <button class="button button-error button-border">
         <i class="fa fa-trash" aria-hidden="true"></i>
