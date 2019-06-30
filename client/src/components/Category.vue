@@ -125,7 +125,7 @@ export default {
 .category {
 position: relative;
 overflow-y: scroll;
-height: 80vh; }
+height: 70vh; }
 .flip-list-move {
   transition: transform 0.5s;
 }
