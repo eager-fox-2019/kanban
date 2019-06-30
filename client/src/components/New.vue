@@ -11,7 +11,6 @@
         class="card-header"
         role="button"
         aria-controls="contentIdForA11y3"
-        @click="clearForm"
       >
         <p class="card-header-title" style="text-align: center">New Kanban</p>
       </div>
