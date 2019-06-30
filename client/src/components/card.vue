@@ -2,7 +2,7 @@
     <div>
         <div class="tile is-ancestor" style="margin: 5%; margin-top: -2%;">
             <article class="tile is-child box is-10" style="padding: 5%;">
-                <p style="font-size: 25px; font-weight: bold;"> {{data.title}} || {{data.id}} </p>
+                <p style="font-size: 25px; font-weight: bold;"> {{data.title}} </p>
                 <p style="font-size: 14px;"> {{data.description}} </p>
                 <p style="font-size: 14px;" v-show="data.assign"> assign: {{data.assign}} </p>
             </article>
@@ -33,7 +33,6 @@
         props: ['data'],
         data() {
             return {
-                
             }
         },
         methods: {
@@ -46,7 +45,6 @@
             },
             updatePrev(data) {
                 //console.log("TEST DATA", data)
-                alert("prev")
                 if (data.data.status !== 0) {
                     let current = data.data.status - 1
                     var ref = db.collection("tasks").doc(data.data.id);
@@ -56,17 +54,14 @@
                     })
                     .then(function() {
                         console.log("Document successfully updated!");
-                        alert("prev then")
                     })
                     .catch(function(error) {
-                        alert("prev error")
                         // The document probably doesn't exist.
                         console.error("Error updating document: ", error);
                     });
                 }
             },
             updateNext(data) {
-                alert("next")
                 if (data.data.status !== 3) {
                     let current = data.data.status + 1
                     var ref = db.collection("tasks").doc(`${data.data.id}`);
@@ -75,11 +70,9 @@
                         status: current
                     })
                     .then(function() {
-                        alert("next then")
                         console.log("Document successfully updated!");
                     })
                     .catch(function(error) {
-                        alert("next err")
                         // The document probably doesn't exist.
                         console.error("Error updating document: ", error);
                     });
