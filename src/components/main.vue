@@ -23,18 +23,22 @@ export default {
       // titles: ['Pre-Log', 'To-Do', 'On-Going', 'Done'],
       tasks: [
         {
+          id: null,
           name: 'Pre-Log',
           data: []
         },
         {
+          id: null,
           name: 'To-Do',
           data: []
         },
         {
+          id: null,
           name: 'On-Going',
           data: []
         },
         {
+          id: null,
           name: 'Done',
           data: []
         }
@@ -52,6 +56,7 @@ export default {
       console.log(value, 'ini value')
       this.hello = value
       this.tasks[0].data = value
+      this.tasks[0].id++
     }
   },
   // mounted: {
