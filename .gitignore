@@ -2,6 +2,7 @@
 node_modules
 src/assets/config.js
 /dist
+.firebas*
 
 # local env files
 .env.local

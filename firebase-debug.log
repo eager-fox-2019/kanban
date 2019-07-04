@@ -1,0 +1,458 @@
+[debug] [2019-06-27T15:31:53.684Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:31:53.687Z] Command:       /usr/bin/node /usr/bin/firebase login
+[debug] [2019-06-27T15:31:53.687Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:31:53.687Z] Platform:      linux
+[debug] [2019-06-27T15:31:53.688Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:31:53.688Z] Time:          Thu Jun 27 2019 22:31:53 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:31:53.688Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+[info] Visit this URL on any device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=597826206&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2019-06-27T15:33:41.546Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:33:41.550Z] Command:       /usr/bin/node /usr/bin/firebase list
+[debug] [2019-06-27T15:33:41.550Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:33:41.551Z] Platform:      linux
+[debug] [2019-06-27T15:33:41.551Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:33:41.551Z] Time:          Thu Jun 27 2019 22:33:41 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:33:41.551Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:33:41.566Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:33:41.567Z] > attempting to authenticate via app default credentials
+[debug] [2019-06-27T15:33:42.404Z] ! auto-auth error: Could not load the default credentials. Browse to https://developers.google.com/accounts/docs/application-default-credentials for more information.
+[debug] [2019-06-27T15:33:42.405Z] > no credentials could be found or automatically retrieved
+[error] 
+[error] Error: Command requires authentication, please run firebase login
+[debug] [2019-06-27T15:33:42.663Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.exit (internal/process/per_thread.js:168:15)
+    at Timeout._onTimeout (/usr/lib/node_modules/firebase-tools/lib/errorOut.js:14:17)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-06-27T15:33:46.919Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:33:46.924Z] Command:       /usr/bin/node /usr/bin/firebase login
+[debug] [2019-06-27T15:33:46.925Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:33:46.925Z] Platform:      linux
+[debug] [2019-06-27T15:33:46.925Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:33:46.925Z] Time:          Thu Jun 27 2019 22:33:46 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:33:46.925Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+[info] Visit this URL on any device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=1067259099&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2019-06-27T15:35:28.988Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:35:28.991Z] Command:       /usr/bin/node /usr/bin/firebase login --no-localhost
+[debug] [2019-06-27T15:35:28.991Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:35:28.992Z] Platform:      linux
+[debug] [2019-06-27T15:35:28.992Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:35:28.992Z] Time:          Thu Jun 27 2019 22:35:28 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:35:28.992Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+[info] Visit this URL on any device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=349064099&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
+[info] 
+[debug] [2019-06-27T15:35:57.284Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
+
+[debug] [2019-06-27T15:35:59.110Z] <<< HTTP RESPONSE 200
+[info] 
+[info] ✔  Success! Logged in as sao.irsyad@gmail.com
+[debug] [2019-06-27T15:35:59.143Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T15:36:11.990Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:36:11.993Z] Command:       /usr/bin/node /usr/bin/firebase list
+[debug] [2019-06-27T15:36:11.994Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:36:11.994Z] Platform:      linux
+[debug] [2019-06-27T15:36:11.994Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:36:11.994Z] Time:          Thu Jun 27 2019 22:36:11 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:36:11.994Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:36:12.010Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:36:12.010Z] > authorizing via signed-in user
+[debug] [2019-06-27T15:36:12.013Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-27T15:36:12.013Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-06-27T15:36:13.653Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:36:13.666Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2019-06-27T15:36:15.846Z] <<< HTTP RESPONSE 200
+[info] ┌────────┬───────────────────────┬─────────────┐
+│ Name   │ Project ID / Instance │ Permissions │
+├────────┼───────────────────────┼─────────────┤
+│ kanban │ kanban-19aba          │ Owner       │
+└────────┴───────────────────────┴─────────────┘
+[debug] [2019-06-27T15:36:15.861Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T15:37:20.270Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:37:20.279Z] Command:       /usr/bin/node /usr/bin/firebase list --debug
+[debug] [2019-06-27T15:37:20.281Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:37:20.281Z] Platform:      linux
+[debug] [2019-06-27T15:37:20.282Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:37:20.284Z] Time:          Thu Jun 27 2019 22:37:20 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:37:20.285Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:37:20.302Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:37:20.304Z] > authorizing via signed-in user
+[debug] [2019-06-27T15:37:20.309Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2019-06-27T15:37:22.037Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:37:47.656Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:37:47.659Z] Command:       /usr/bin/node /usr/bin/firebase list
+[debug] [2019-06-27T15:37:47.660Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:37:47.660Z] Platform:      linux
+[debug] [2019-06-27T15:37:47.660Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:37:47.660Z] Time:          Thu Jun 27 2019 22:37:47 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:37:47.660Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:37:47.674Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:37:47.674Z] > authorizing via signed-in user
+[debug] [2019-06-27T15:37:47.678Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2019-06-27T15:37:48.841Z] <<< HTTP RESPONSE 200
+[info] ┌────────┬───────────────────────┬─────────────┐
+│ Name   │ Project ID / Instance │ Permissions │
+├────────┼───────────────────────┼─────────────┤
+│ kanban │ kanban-19aba          │ Owner       │
+└────────┴───────────────────────┴─────────────┘
+[debug] [2019-06-27T15:37:48.856Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T15:38:05.160Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:38:05.164Z] Command:       /usr/bin/node /usr/bin/firebase init
+[debug] [2019-06-27T15:38:05.166Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:38:05.166Z] Platform:      linux
+[debug] [2019-06-27T15:38:05.166Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:38:05.167Z] Time:          Thu Jun 27 2019 22:38:05 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:38:05.167Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:38:05.184Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:38:05.185Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /data/Phase2/week3/kanban
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-06-27T15:38:55.891Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?page_size=100  
+ 
+[debug] [2019-06-27T15:38:57.871Z] <<< HTTP RESPONSE 200
+[info] i  Using project kanban-19aba (kanban)
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2019-06-27T15:39:17.429Z] >>> HTTP REQUEST GET https://www.gstatic.com/firebasejs/releases.json  
+ 
+[debug] [2019-06-27T15:39:19.089Z] <<< HTTP RESPONSE 200
+[info] i  Skipping write of public/index.html
+[info] 
+[info] i  Writing configuration info to firebase.json...
+[info] i  Writing project information to .firebaserc...
+[info] 
+[info] ✔  Firebase initialization complete!
+[debug] [2019-06-27T15:39:25.991Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at processEmit [as emit] (/usr/lib/node_modules/firebase-tools/node_modules/signal-exit/index.js:149:35)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T15:40:52.255Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:40:52.258Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2019-06-27T15:40:52.259Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:40:52.259Z] Platform:      linux
+[debug] [2019-06-27T15:40:52.259Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:40:52.259Z] Time:          Thu Jun 27 2019 22:40:52 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:40:52.259Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:40:52.276Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:40:52.276Z] > authorizing via signed-in user
+[debug] [2019-06-27T15:40:52.277Z] [iam] checking project kanban-19aba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-27T15:40:52.279Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kanban-19aba:testIamPermissions  
+
+[debug] [2019-06-27T15:40:54.553Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:40:54.557Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kanban-19aba  
+ 
+[debug] [2019-06-27T15:40:56.054Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kanban-19aba'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-06-27T15:40:56.063Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions  
+
+[debug] [2019-06-27T15:40:59.887Z] <<< HTTP RESPONSE 200
+[info] i  hosting[kanban-19aba]: beginning deploy...
+[info] i  hosting[kanban-19aba]: found 2 files in public
+[debug] [2019-06-27T15:40:59.923Z] [hosting] hash cache [cHVibGlj] not populated
+[debug] [2019-06-27T15:40:59.997Z] [hosting] hash cache [cHVibGlj] stored for 2 files
+[debug] [2019-06-27T15:40:59.998Z] [hosting][hash queue][FINAL]
+[debug] [2019-06-27T15:40:59.999Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions/ea4db25e55d48dba:populateFiles  
+ <request body omitted>
+[debug] [2019-06-27T15:41:01.951Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:41:01.957Z] [hosting][populate queue][FINAL]
+[debug] [2019-06-27T15:41:01.957Z] [hosting] uploads queued: 2
+[debug] [2019-06-27T15:41:06.172Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[kanban-19aba]: file upload complete
+[debug] [2019-06-27T15:41:06.174Z] [hosting] deploy completed after 6283ms
+[debug] [2019-06-27T15:41:06.175Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "kanban-19aba"
+    },
+    "site": "kanban-19aba",
+    "version": "sites/kanban-19aba/versions/ea4db25e55d48dba"
+  }
+]
+[info] i  hosting[kanban-19aba]: finalizing version...
+[debug] [2019-06-27T15:41:06.176Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions/ea4db25e55d48dba?updateMask=status  
+
+[debug] [2019-06-27T15:41:08.010Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:41:08.011Z] [hosting] finalized version for kanban-19aba:
+[info] ✔  hosting[kanban-19aba]: version finalized
+[info] i  hosting[kanban-19aba]: releasing new version...
+[debug] [2019-06-27T15:41:08.015Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/releases?version_name=sites/kanban-19aba/versions/ea4db25e55d48dba  
+
+[debug] [2019-06-27T15:41:09.917Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:41:09.918Z] [hosting] release:
+[info] ✔  hosting[kanban-19aba]: release complete
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/kanban-19aba/overview
+[info] Hosting URL: https://kanban-19aba.firebaseapp.com
+[debug] [2019-06-27T15:41:09.932Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T15:46:30.326Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:46:30.330Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2019-06-27T15:46:30.331Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:46:30.331Z] Platform:      linux
+[debug] [2019-06-27T15:46:30.331Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:46:30.331Z] Time:          Thu Jun 27 2019 22:46:30 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:46:30.331Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:46:30.347Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:46:30.348Z] > authorizing via signed-in user
+[debug] [2019-06-27T15:46:30.348Z] [iam] checking project kanban-19aba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-27T15:46:30.352Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kanban-19aba:testIamPermissions  
+
+[debug] [2019-06-27T15:46:32.939Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:46:32.942Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kanban-19aba  
+ 
+[debug] [2019-06-27T15:46:34.353Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kanban-19aba'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-06-27T15:46:34.374Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions  
+
+[debug] [2019-06-27T15:46:37.167Z] <<< HTTP RESPONSE 200
+[info] i  hosting[kanban-19aba]: beginning deploy...
+[info] i  hosting[kanban-19aba]: found 2 files in public
+[debug] [2019-06-27T15:46:37.186Z] [hosting] hash cache [cHVibGlj] load error: lines is not defined
+[debug] [2019-06-27T15:46:37.214Z] [hosting] hash cache [cHVibGlj] stored for 2 files
+[debug] [2019-06-27T15:46:37.215Z] [hosting][hash queue][FINAL]
+[debug] [2019-06-27T15:46:37.216Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions/fe3b337f9a9950eb:populateFiles  
+ <request body omitted>
+[debug] [2019-06-27T15:46:39.070Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:46:39.071Z] [hosting][populate queue][FINAL]
+[debug] [2019-06-27T15:46:39.071Z] [hosting] uploads queued: 0
+[debug] [2019-06-27T15:46:39.071Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[kanban-19aba]: file upload complete
+[debug] [2019-06-27T15:46:39.072Z] [hosting] deploy completed after 1903ms
+[debug] [2019-06-27T15:46:39.073Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "kanban-19aba"
+    },
+    "site": "kanban-19aba",
+    "version": "sites/kanban-19aba/versions/fe3b337f9a9950eb"
+  }
+]
+[info] i  hosting[kanban-19aba]: finalizing version...
+[debug] [2019-06-27T15:46:39.074Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions/fe3b337f9a9950eb?updateMask=status  
+
+[debug] [2019-06-27T15:46:40.915Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:46:40.916Z] [hosting] finalized version for kanban-19aba:
+[info] ✔  hosting[kanban-19aba]: version finalized
+[info] i  hosting[kanban-19aba]: releasing new version...
+[debug] [2019-06-27T15:46:40.920Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/releases?version_name=sites/kanban-19aba/versions/fe3b337f9a9950eb  
+
+[debug] [2019-06-27T15:46:42.874Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T15:46:42.875Z] [hosting] release:
+[info] ✔  hosting[kanban-19aba]: release complete
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/kanban-19aba/overview
+[info] Hosting URL: https://kanban-19aba.firebaseapp.com
+[debug] [2019-06-27T15:46:42.892Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T15:50:39.509Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T15:50:39.511Z] Command:       /usr/bin/node /usr/bin/firebase list
+[debug] [2019-06-27T15:50:39.512Z] CLI Version:   7.0.2
+[debug] [2019-06-27T15:50:39.512Z] Platform:      linux
+[debug] [2019-06-27T15:50:39.512Z] Node Version:  v10.15.3
+[debug] [2019-06-27T15:50:39.512Z] Time:          Thu Jun 27 2019 22:50:39 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T15:50:39.512Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T15:50:39.530Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T15:50:39.531Z] > authorizing via signed-in user
+[debug] [2019-06-27T15:50:39.533Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+ 
+[debug] [2019-06-27T15:50:41.628Z] <<< HTTP RESPONSE 200
+[info] ┌──────────────────┬───────────────────────┬─────────────┐
+│ Name             │ Project ID / Instance │ Permissions │
+├──────────────────┼───────────────────────┼─────────────┤
+│ kanban (current) │ kanban-19aba          │ Owner       │
+└──────────────────┴───────────────────────┴─────────────┘
+[debug] [2019-06-27T15:50:41.648Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
+[debug] [2019-06-27T16:09:45.442Z] ----------------------------------------------------------------------
+[debug] [2019-06-27T16:09:45.445Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2019-06-27T16:09:45.445Z] CLI Version:   7.0.2
+[debug] [2019-06-27T16:09:45.446Z] Platform:      linux
+[debug] [2019-06-27T16:09:45.446Z] Node Version:  v10.15.3
+[debug] [2019-06-27T16:09:45.446Z] Time:          Thu Jun 27 2019 23:09:45 GMT+0700 (Western Indonesia Time)
+[debug] [2019-06-27T16:09:45.446Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-27T16:09:45.463Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-27T16:09:45.463Z] > authorizing via signed-in user
+[debug] [2019-06-27T16:09:45.463Z] [iam] checking project kanban-19aba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-27T16:09:45.467Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kanban-19aba:testIamPermissions  
+
+[debug] [2019-06-27T16:09:47.778Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T16:09:47.788Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kanban-19aba  
+ 
+[debug] [2019-06-27T16:09:49.413Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kanban-19aba'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-06-27T16:09:49.431Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions  
+
+[debug] [2019-06-27T16:09:52.158Z] <<< HTTP RESPONSE 200
+[info] i  hosting[kanban-19aba]: beginning deploy...
+[info] i  hosting[kanban-19aba]: found 7 files in dist
+[debug] [2019-06-27T16:09:52.198Z] [hosting] hash cache [ZGlzdA] not populated
+[debug] [2019-06-27T16:09:53.013Z] [hosting] hash cache [ZGlzdA] stored for 7 files
+[debug] [2019-06-27T16:09:53.013Z] [hosting][hash queue][FINAL]
+[debug] [2019-06-27T16:09:53.014Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions/66b20721e838c38c:populateFiles  
+ <request body omitted>
+[debug] [2019-06-27T16:09:55.226Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T16:09:55.242Z] [hosting][populate queue][FINAL]
+[debug] [2019-06-27T16:09:55.242Z] [hosting] uploads queued: 6
+[debug] [2019-06-27T16:10:00.773Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[kanban-19aba]: file upload complete
+[debug] [2019-06-27T16:10:00.775Z] [hosting] deploy completed after 8615ms
+[debug] [2019-06-27T16:10:00.776Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "kanban-19aba"
+    },
+    "site": "kanban-19aba",
+    "version": "sites/kanban-19aba/versions/66b20721e838c38c"
+  }
+]
+[info] i  hosting[kanban-19aba]: finalizing version...
+[debug] [2019-06-27T16:10:00.777Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/versions/66b20721e838c38c?updateMask=status  
+
+[debug] [2019-06-27T16:10:02.839Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T16:10:02.840Z] [hosting] finalized version for kanban-19aba:
+[info] ✔  hosting[kanban-19aba]: version finalized
+[info] i  hosting[kanban-19aba]: releasing new version...
+[debug] [2019-06-27T16:10:02.842Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/kanban-19aba/releases?version_name=sites/kanban-19aba/versions/66b20721e838c38c  
+
+[debug] [2019-06-27T16:10:04.916Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-27T16:10:04.916Z] [hosting] release:
+[info] ✔  hosting[kanban-19aba]: release complete
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/kanban-19aba/overview
+[info] Hosting URL: https://kanban-19aba.firebaseapp.com
+[debug] [2019-06-27T16:10:04.939Z] Error: ETXTBSY: text file is busy, unlink '/data/Phase2/week3/kanban/firebase-debug.log'
+    at Object.unlinkSync (fs.js:951:3)
+    at process.<anonymous> (/usr/lib/node_modules/firebase-tools/lib/bin/firebase.js:68:12)
+    at process.emit (events.js:194:15)
+    at process.topLevelDomainCallback (domain.js:120:23)
