@@ -5,16 +5,16 @@
             type="is-danger"
             message="what's your plan..">
             <b-input type="email"
-                maxlength="30">
+                maxlength="30" v-model="form.task[0].title">
             </b-input>
         </b-field>
 
         <b-field label="Task Deskription"
             type="is-success"
             message="write down you plan description">
-            <b-input maxlength="30"></b-input>
+            <b-input maxlength="30" v-model="form.task[0].description"></b-input>
         </b-field>
-         <a class="button is-primary">Add New</a>
+         <a @click="addNewKanban" class="button is-primary">Add New</a>
     </section>
 
     <div class="columns" >
@@ -36,30 +36,20 @@ import db from '@/config/firebase.js'
 
 let dataKanban = [
     {
-        title : 'Back-Log',
-        task : [
-            {
-                title : 'test beli nasi padang',
-                description : 'ini buat beli nasi padang buat makan hariini',
-                when : 'today'
-            }
-        ]
-    },
-    {
-        title : 'To-Do', 
+        status : 'Back-Log',
         task : []
     },
     {
-        title : 'Doing',
+        status : 'To-Do', 
         task : []
     },
     {
-        title : 'Done',
-        task : [{
-             title : 'test beli nasi padang',
-            description : 'ini buat beli nasi padang buat makan hariini',
-            when : 'today'
-        }]
+        status : 'Doing',
+        task : []
+    },
+    {
+        status : 'Done',
+        task : []
     }
 ]
 
@@ -93,17 +83,52 @@ let dataKanban = [
 export default {
     methods : {
     readdata() {
-        let temp = []
+        // console.log('masuk?')
       db.collection("kanban")
-        .orderBy("title", "asc")
         .onSnapshot(querySnapshot => {
-        querySnapshot.forEach(el => {
-            console.log(el.data(), '============')
-            temp.push(el.data())
+        let temp = [
+                {
+                    status : 'Back-Log',
+                    task : []
+                },
+                {
+                    status : 'To-Do', 
+                    task : []
+                },
+                {
+                    status : 'Doing',
+                    task : []
+                },
+                {
+                    status : 'Done',
+                    task : []
+                }
+        ]
+        let counter = 0
+        querySnapshot.forEach((el) => {
+            
+            // el.data().task[0].id = el.id
+            if(el.data().status == 'Back-Log'){
+                temp[0].task.push(el.data().task)
+            }else if(el.data().status == 'To-Do'){
+                temp[1].task.push(el.data().task)
+            }else if(el.data().status == 'Doing'){
+                temp[2].task.push(el.data().task)
+            }else if(el.data().status == 'Done'){
+                temp[3].task.push(el.data().task)
+            }
             // this.kanban.push(el.data())
+            console.log(temp, '============')
+            console.log('sampai sini')
+            console.log(el.id, '@@@@@@@')
+            counter++
         });
         this.kanban = temp
         });
+    },
+    addNewKanban(){
+        db.collection('kanban').add(this.form)
+        this.$router.push('/')
     }
     },
     components: {
@@ -113,7 +138,15 @@ export default {
     data(){
         return{
             kanban : '',
-            task : ''
+            task : '',
+            form : {
+                status : 'Back-Log',
+                task : [{
+                    title : '', 
+                    description : ''
+                }]
+                
+            }
         }
     },
     created(){

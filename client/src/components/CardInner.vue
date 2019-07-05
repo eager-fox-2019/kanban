@@ -2,7 +2,7 @@
          <div class="card">
             <header class="card-header">
                 <p class="card-header-title" >
-                {{ eachTask.status }}
+                {{ eachTask.title }}{{eachTask.id}}
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                 <span class="icon">
@@ -16,7 +16,10 @@
                 </div>
             </div>
             <footer class="card-footer">
-                <a href="#" class="card-footer-item">Detail</a>
+                <a v-if="kan.status == 'Back-Log'" @click="nexxxt('Back-Log')" href="#" class="card-footer-item">Detail</a>
+                <a v-if="kan.status == 'To-Do'" @click="nexxxt('To-Do')" href="#" class="card-footer-item">Detail</a>
+                <a v-if="kan.status == 'Doing'" @click="nexxxt('Doing')" href="#" class="card-footer-item">Detail</a>
+                
             </footer>
     </div>
 </template>
@@ -24,10 +27,15 @@
 <script>
 export default {
     name : 'CardOuter',
-    props : ['eachTask'],
+    props : ['eachTask', 'kan'],
     data(){
         return{
 
+        }
+    },
+    methods : {
+        nexxxt(thx){
+            this.$emit('goNext', thx)
         }
     }
 }

@@ -2,18 +2,18 @@
 <div>
     <div class="card">
         <div class="card-content">
-            <h3>{{kan.title}}</h3>
+            <h3>{{kan.status}}</h3>
             <div>
                 
             </div>
             <!-- <CardInner v-bind:eachTask="eachTask"></CardInner> -->
             <hr>
-            <div>
+            <div v-for="firstEach in kan.task" :key="firstEach">
                 <!-- <div class="card" v-for="eachTask in kan.task" :key="eachTask"> -->
                 <!-- <header class="card-header">
                     <p class="card-header-title" >{{eachTask.title}}</p>
                 </header> -->
-                <cardInner v-for="eachTask in kan.task" :key="eachTask" v-bind:eachTask="eachTask"></cardInner>
+                <cardInner v-for="eachTask in firstEach" :key="eachTask" v-bind:eachTask="eachTask" :kan="kan" @goNext="fUpdate"></cardInner>
                 <!-- <cardInner/> -->
             <!-- </div> -->
         </div>
@@ -35,6 +35,11 @@ export default {
   },
   components : {
       cardInner
+  },
+  methods : {
+      fUpdate(val){
+
+      }
   }
 }
 </script>
