@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       
+
       <strike @click="noNewTask" style="cursor:pointer"><b>KAN-BANNED</b></strike>
       <br>
       <small v-if="!isNew"><a @click="newTask">+ Task</a></small>
@@ -15,20 +16,23 @@
 
 
 export default {
-  
+  props : ['isNew'],
   data(){
     return {
-      isNew : false
+      // isNew : false
     }
   },
   methods : {
     newTask(){
-      this.isNew = true,
+      // this.isNew = true,
       this.$router.push('/new')
+      console.log(this.isNew)
     },
     noNewTask(){
-      this.isNew = false,
+      // this.isNew = false,
       this.$router.push('/')
+      console.log(this.isNew)
+
     }
   }
 }

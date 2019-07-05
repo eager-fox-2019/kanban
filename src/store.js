@@ -12,11 +12,12 @@ export default new Vuex.Store({
     dataBL : [],
     dataDG : [],
     dataDN : [],
-    dataTD : []
+    dataTD : [],
+    isLoadFetchData: false
   },
   mutations: {
     allData(state, payload){
-      
+      console.log(payload, payload.length, 'hasil fetch dataaaa')
       state.allData = payload
       state.dataBL = []
       state.dataDG = []
@@ -29,52 +30,25 @@ export default new Vuex.Store({
         else if(el.status === 'doing') state.dataDG.push(el)
         else if(el.status === 'done') state.dataDN.push(el)
       })
+      state.isLoadFetchData = true
       // console.log(state.dataBL)
 
     }
 
   },
   actions: {
-    // getAllData(context, payload){
-    //   return new Promise ((resolve, reject) => {
-    //     let datas = []
-    //     db.collection('kanbans').get()
-    //     .then(doc => {
-    //       doc.forEach(el => {
-    //         let doc = el.data()
-    //         datas.push(doc)
-    //       })
-    //       context.commit('allData', datas)
-    //       resolve(true)
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //       reject(err)
-    //     })
-    //   })
-    // },
     getAllData(context, payload){
-      return new Promise ((resolve, reject) => {
+      db.collection('kanbans').onSnapshot(doc => {
         let datas = []
-        db.collection('kanbans').onSnapshot(doc => {
-          if(doc){
-            // let num = doc.data().length
-            // doc.splice(0, num)
-            // console.log(num, typeof doc)
-            let count = 0
-            doc.forEach((el) => {
-              datas.push(el.data())
-              datas[count].id = el.id
-              // console.log(datas[count])
-              count++
-            })
-            context.commit('allData', datas)
-            resolve(true)
-          } else {
-            reject(false)
-          }
+        // console.log(doc)
+        let count = 0
+        doc.forEach((el) => {
+          datas.push(el.data())
+          console.log(datas)
+          datas[count].id = el.id
+          count++
         })
-        
+        context.commit('allData', datas)
       })
     }
   }

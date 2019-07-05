@@ -17,10 +17,10 @@
                   </p>
                 </header>
                 <div class="card-content">
-                  <div v-if="!fetchData" class="content">
+                  <div v-if="!isLoadFetchData" class="content">
                     <div class="lds-hourglass"></div>
                   </div>
-                  <div v-if="fetchData">
+                  <div v-if="isLoadFetchData">
                     <div v-if="dataBL.length !== 0">
                       <div class="content" v-for="(data, i) in dataBL"
                         :key="i">
@@ -68,10 +68,10 @@
                   </p>
                 </header>
                 <div class="card-content">
-                  <div v-if="!fetchData" class="content">
+                  <div v-if="!isLoadFetchData" class="content">
                     <div class="lds-hourglass"></div>
                   </div>
-                  <div v-if="fetchData">
+                  <div v-if="isLoadFetchData">
                     <div v-if="dataTD.length !== 0">
                       <div class="content" v-for="(data, i) in dataTD"
                         :key="i">
@@ -116,10 +116,10 @@
                   </p>
                 </header>
                 <div class="card-content">
-                  <div v-if="!fetchData" class="content">
+                  <div v-if="!isLoadFetchData" class="content">
                     <div class="lds-hourglass"></div>
                   </div>
-                  <div v-if="fetchData">
+                  <div v-if="isLoadFetchData">
                     <div v-if="dataDG.length !== 0">
                       <div class="content" v-for="(data, i) in dataDG"
                         :key="i">
@@ -164,10 +164,10 @@
                   </p>
                 </header>
                 <div class="card-content">
-                  <div v-if="!fetchData" class="content">
+                  <div v-if="!isLoadFetchData" class="content">
                     <div class="lds-hourglass"></div>
                   </div>
-                  <div v-if="fetchData">
+                  <div v-if="isLoadFetchData">
                     <div v-if="dataDN.length !== 0">
                       <div class="content" v-for="(data, i) in dataDN"
                         :key="i">
@@ -185,7 +185,7 @@
                           <div class="panel-block">
                             <p>Points : {{data.point}}                          
                               <br>
-                              Assigned To : {{data.assignedTo}}
+                              Assigned To : {{data.assign}}
                               <br>
                               {{data.description}}
                             </p>
@@ -221,27 +221,21 @@ export default {
   },
   data(){
     return {
-      isOpen : false,
-      fetchData : false,
+      // isOpen : false,
+      // isLoadFetchData : false,
       error : ''
     }
   },
   computed : {
-    ...mapState(['allData', 'dataBL', 'dataTD', 'dataDG', 'dataDN']),
+    ...mapState(['allData', 'dataBL', 'dataTD', 'dataDG', 'dataDN', 'isLoadFetchData']),
   },
-  created(){
+  mounted(){
     this.$store.dispatch('getAllData')
-      .then(data => {
-        this.fetchData = data
-        this.$router.push('/')
-      })
-      .catch(err => {
-        this.fetchData = true
-        this.error = 'failed to fetch data'
-      })
+
   },
   methods : {
     deleteDoc(id){
+      
       db.collection('kanbans').doc(id).delete()
     },
     updateDoc(id, direction){
