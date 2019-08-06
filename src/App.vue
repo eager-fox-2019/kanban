@@ -150,12 +150,16 @@ export default {
       let option = "";
       if (provider == "google") {
         option = new firebase.auth.GoogleAuthProvider();
+        option.addScope("profile");
+        option.addScope("email");
       }
       if (provider == "facebook") {
         option = new firebase.auth.FacebookAuthProvider();
       }
       if (provider == "github") {
         option = new firebase.auth.GithubAuthProvider();
+        option.addScope("profile");
+        option.addScope("email");
       }
 
       firebase
@@ -163,15 +167,8 @@ export default {
         .signInWithPopup(option)
         .then(result => {
           let token = result.credential.accessToken;
-          let user = result.user;
-          if (provider == "google") {
-            user = result.user;
-            console.log(JSON.stringify(user, null, 3));
-          }
-          if (provider == "facebook" || provider == "github") {
-            user = result.user.providerData[0];
-          }
-
+          let user = result.user.providerData[0];
+          
           let { email, displayName, photoURL } = user;
           localStorage.token = token;
           localStorage.user = JSON.stringify({ email, displayName, photoURL });
